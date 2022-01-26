@@ -13,12 +13,12 @@ calculator.appendChild(button_area);
 //buttons creation
 let clear = document.createElement("button");
 let backspace = document.createElement("button");
-let power = document.createElement("button");
-let division = document.createElement("button");
-let multiplication = document.createElement("button");
-let subtraction = document.createElement("button");
-let summation = document.createElement("button");
-let result = document.createElement("button");
+let power_sign = document.createElement("button");
+let div_sign = document.createElement("button");
+let mult_sign = document.createElement("button");
+let minus_sign = document.createElement("button");
+let plus_sign = document.createElement("button");
+let result_sign = document.createElement("button");
 let dot = document.createElement("button");
 
 let zero = document.createElement("button");
@@ -34,16 +34,16 @@ let nine = document.createElement("button");
 
 clear.textContent = "C";
 backspace.textContent = "DEL";
-power.textContent = "x^y";
-division.textContent = "÷";
-multiplication.textContent = "×";
-summation.textContent = "+";
-subtraction.textContent = "–";
+power_sign.textContent = "x^y";
+div_sign.textContent = "÷";
+mult_sign.textContent = "×";
+plus_sign.textContent = "+";
+minus_sign.textContent = "–";
 dot.textContent = ".";
 
-result.style.gridColumn = "span 2 / auto";
-result.setAttribute("id", "result");
-result.textContent = "=";
+result_sign.style.gridColumn = "span 2 / auto";
+result_sign.setAttribute("id", "result");
+result_sign.textContent = "=";
 
 zero.textContent = "0";
 one.textContent = "1";
@@ -58,27 +58,27 @@ nine.textContent = "9";
 
 button_area.appendChild(clear);
 button_area.appendChild(backspace);
-button_area.appendChild(power);
-button_area.appendChild(division);
+button_area.appendChild(power_sign);
+button_area.appendChild(div_sign);
 
 button_area.appendChild(nine);
 button_area.appendChild(eight);
 button_area.appendChild(seven);
-button_area.append(multiplication);
+button_area.append(mult_sign);
 
 button_area.appendChild(six);
 button_area.appendChild(five);
 button_area.appendChild(four);
-button_area.append(summation);
+button_area.append(plus_sign);
 
 button_area.appendChild(three);
 button_area.appendChild(two);
 button_area.appendChild(one);
-button_area.append(subtraction);
+button_area.append(minus_sign);
 
 button_area.appendChild(zero);
 button_area.appendChild(dot);
-button_area.appendChild(result);
+button_area.appendChild(result_sign);
 
 //functions area
 
@@ -86,9 +86,12 @@ let initial = 0;
 
 screen.textContent = initial;
 let screennumber = initial;
+let temp = 0;
+let total = 0;
+let op_counter = 0;
 
 one.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 1;
         screennumber = 1 + screennumber*10;
@@ -99,7 +102,7 @@ one.onclick = () => {
 };
 
 two.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 2;
         screennumber = 2 + screennumber*10;
@@ -110,7 +113,7 @@ two.onclick = () => {
 };
 
 three.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 3;
         screennumber = 3 + screennumber*10;
@@ -121,7 +124,7 @@ three.onclick = () => {
 };
 
 four.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 4;
         screennumber = 4 + screennumber*10;
@@ -132,7 +135,7 @@ four.onclick = () => {
 };
 
 five.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 5;
         screennumber = 5 + screennumber*10;
@@ -143,7 +146,7 @@ five.onclick = () => {
 };
 
 six.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 6;
         screennumber = 6 + screennumber*10;
@@ -154,7 +157,7 @@ six.onclick = () => {
 };
 
 seven.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 7;
         screennumber = 7 + screennumber*10;
@@ -165,7 +168,7 @@ seven.onclick = () => {
 };
 
 eight.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 8;
         screennumber = 8 + screennumber*10;
@@ -176,7 +179,7 @@ eight.onclick = () => {
 };
 
 nine.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 9;
         screennumber = 9 + screennumber*10;
@@ -187,7 +190,7 @@ nine.onclick = () => {
 };
 
 zero.onclick = () => {
-    if (screennumber != 0)
+    if (screen.textContent != 0)
     {
         screen.textContent += 0;
         screennumber = 0 + screennumber*10;
@@ -196,3 +199,97 @@ zero.onclick = () => {
         screennumber = 0;   
     }
 };
+
+clear.onclick = () => {
+    screennumber = 0;
+    total = 0;
+    temp = 0;
+    op_counter = 0;
+    screen.textContent = initial;
+}
+
+plus_sign.onclick = () => {
+    plus_sign.setAttribute("class", "active");
+    if (op_counter == 0)
+    {
+        temp = screennumber;
+    } 
+    
+    screennumber = 0;
+    screen.textContent += "+";
+}
+
+minus_sign.onclick = () => {
+    minus_sign.setAttribute("class", "active");
+    if (op_counter == 0)
+    {
+        temp = screennumber;
+    } 
+    screennumber = 0;
+    screen.textContent += "–";
+}
+
+mult_sign.onclick = () => {
+    mult_sign.setAttribute("class", "active");
+    if (op_counter == 0)
+    {
+        temp = screennumber;
+    } 
+    screennumber = 0;
+    screen.textContent += "×";
+}
+
+div_sign.onclick = () => {
+    div_sign.setAttribute("class", "active");
+    if (op_counter == 0)
+    {
+        temp = screennumber;
+    } 
+    screennumber = 0;
+    screen.textContent += "÷";
+}
+
+power_sign.onclick = () => {
+    power_sign.setAttribute("class", "active");
+    if (op_counter == 0)
+    {
+        temp = screennumber;
+    } 
+    screennumber = 0;
+    screen.textContent += "^";
+}
+
+result_sign.onclick = () => {
+    total = operate(temp, screennumber);
+    screen.textContent += "=" + total;
+    temp = total;
+    screennumber = 0;
+    op_counter++;
+}
+
+function operate(temp, screennumber){
+    if (plus_sign.hasAttributes("active")){
+        
+        total = temp + screennumber;
+        plus_sign.removeAttribute("class", "active");
+    } else if (minus_sign.hasAttributes("active")){
+        minus_sign.removeAttribute("class", "active");
+        total = temp - screennumber;
+    } else if (mult_sign.hasAttributes("active")){
+        mult_sign.removeAttribute("class", "active");
+        total = temp * screennumber;
+    } else if (div_sign.hasAttributes("active")){
+        div_sign.removeAttribute("class", "active");
+        total = temp / screennumber;
+    } else if (power_sign.hasAttributes("active")){
+        power_sign.removeAttribute("class", "active");
+        total = 1;
+        while (screennumber > 0 )
+        {
+            total = total * temp;
+            screennumber--;
+        }
+    }
+    console.log(total);
+    return total;
+}
