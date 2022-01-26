@@ -80,7 +80,119 @@ button_area.appendChild(zero);
 button_area.appendChild(dot);
 button_area.appendChild(result);
 
-//
+//functions area
 
+let initial = 0;
 
+screen.textContent = initial;
+let screennumber = initial;
 
+one.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 1;
+        screennumber = 1 + screennumber*10;
+    } else {
+        screen.textContent = 1;  
+        screennumber = 1;   
+    }
+};
+
+two.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 2;
+        screennumber = 2 + screennumber*10;
+    } else {
+        screen.textContent = 2;
+        screennumber = 2;   
+    }
+};
+
+three.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 3;
+        screennumber = 3 + screennumber*10;
+    } else {
+        screen.textContent = 3;
+        screennumber = 3;   
+    }
+};
+
+four.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 4;
+        screennumber = 4 + screennumber*10;
+    } else {
+        screen.textContent = 4;
+        screennumber = 4;   
+    }
+};
+
+five.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 5;
+        screennumber = 5 + screennumber*10;
+    } else {
+        screen.textContent = 5;
+        screennumber = 5;   
+    }
+};
+
+six.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 6;
+        screennumber = 6 + screennumber*10;
+    } else {
+        screen.textContent = 6;
+        screennumber = 6;   
+    }
+};
+
+seven.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 7;
+        screennumber = 7 + screennumber*10;
+    } else {
+        screen.textContent = 7;
+        screennumber = 7;   
+    }
+};
+
+eight.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 8;
+        screennumber = 8 + screennumber*10;
+    } else {
+        screen.textContent = 8;
+        screennumber = 8;   
+    }
+};
+
+nine.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 9;
+        screennumber = 9 + screennumber*10;
+    } else {
+        screen.textContent = 9;
+        screennumber = 9;   
+    }
+};
+
+zero.onclick = () => {
+    if (screennumber != 0)
+    {
+        screen.textContent += 0;
+        screennumber = 0 + screennumber*10;
+    } else {
+        screen.textContent = 0;
+        screennumber = 0;   
+    }
+};

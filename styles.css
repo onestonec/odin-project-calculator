@@ -13,6 +13,7 @@ body{
     height: 75vh;
     min-height: 500px;
     margin-top: 50px;
+    
 }
 
 #calculator{
@@ -24,11 +25,15 @@ body{
     height: 800px;
     position: relative;
     margin-right: 30%;
+    border-radius: 5%;
 }
 
 #screen{
-
-    flex-basis: 33.33%;
+    
+    min-width: 200px;
+    height: 200px;
+    border-radius: 5%;
+    margin: 5%;
     background-color: rgba(89,89,89,0.4);
 }
 
@@ -46,6 +51,15 @@ button{
     margin-top: 5%;
     border-radius: 30%;
     font-size: 1.5em;
+    position: inherit;
+}
+
+button:hover{
+    background: rgba(89,89,89,0.2);
+}
+
+button:active{
+    background: rgba(89,89,89,0.7);
 }
 
 #result{
