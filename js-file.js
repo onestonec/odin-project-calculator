@@ -46,15 +46,34 @@ result_sign.setAttribute("id", "result");
 result_sign.textContent = "=";
 
 zero.textContent = "0";
+zero.setAttribute("value", "0");
+
 one.textContent = "1";
+one.setAttribute("value", "1");
+
 two.textContent = "2";
+two.setAttribute("value", "2");
+
 three.textContent = "3";
+three.setAttribute("value", "3");
+
 four.textContent = "4";
+four.setAttribute("value", "4");
+
 five.textContent = "5";
+five.setAttribute("value", "5");
+
 six.textContent = "6";
+six.setAttribute("value", "6");
+
 seven.textContent = "7";
+seven.setAttribute("value", "7");
+
 eight.textContent = "8";
+eight.setAttribute("value", "8");
+
 nine.textContent = "9";
+nine.setAttribute("value", "9");
 
 button_area.appendChild(clear);
 button_area.appendChild(backspace);
@@ -89,115 +108,46 @@ let screennumber = initial;
 let temp = 0;
 let total = 0;
 let op_counter = 0;
+let decimal_counter = 1;
 
 one.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 1;
-        screennumber = 1 + screennumber*10;
-    } else {
-        screen.textContent = 1;  
-        screennumber = 1;   
-    }
+    number_click(one.getAttribute("value"));
 };
 
 two.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 2;
-        screennumber = 2 + screennumber*10;
-    } else {
-        screen.textContent = 2;
-        screennumber = 2;   
-    }
+    number_click(two.getAttribute("value"));
 };
 
 three.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 3;
-        screennumber = 3 + screennumber*10;
-    } else {
-        screen.textContent = 3;
-        screennumber = 3;   
-    }
+    number_click(three.getAttribute("value"));
 };
 
 four.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 4;
-        screennumber = 4 + screennumber*10;
-    } else {
-        screen.textContent = 4;
-        screennumber = 4;   
-    }
+    number_click(four.getAttribute("value"));
 };
 
 five.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 5;
-        screennumber = 5 + screennumber*10;
-    } else {
-        screen.textContent = 5;
-        screennumber = 5;   
-    }
+    number_click(five.getAttribute("value"));
 };
 
 six.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 6;
-        screennumber = 6 + screennumber*10;
-    } else {
-        screen.textContent = 6;
-        screennumber = 6;   
-    }
+    number_click(six.getAttribute("value"));
 };
 
 seven.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 7;
-        screennumber = 7 + screennumber*10;
-    } else {
-        screen.textContent = 7;
-        screennumber = 7;   
-    }
+    number_click(seven.getAttribute("value"));
 };
 
 eight.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 8;
-        screennumber = 8 + screennumber*10;
-    } else {
-        screen.textContent = 8;
-        screennumber = 8;   
-    }
+    number_click(eight.getAttribute("value"));
 };
 
 nine.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 9;
-        screennumber = 9 + screennumber*10;
-    } else {
-        screen.textContent = 9;
-        screennumber = 9;   
-    }
+    number_click(nine.getAttribute("value"));
 };
 
 zero.onclick = () => {
-    if (screen.textContent != 0)
-    {
-        screen.textContent += 0;
-        screennumber = 0 + screennumber*10;
-    } else {
-        screen.textContent = 0;
-        screennumber = 0;   
-    }
+    number_click(zero.getAttribute("value"));
 };
 
 clear.onclick = () => {
@@ -208,54 +158,49 @@ clear.onclick = () => {
     screen.textContent = initial;
 }
 
+backspace.onclick = () => {
+    screen.textContent = screen.textContent.slice(0,-1);
+    screennumber = Math.floor(screennumber / 10);
+}
+
+dot.onclick = () => {
+    dot.setAttribute("class", "active");
+    /* if (op_counter == 0)
+    {
+        temp = screennumber/10;
+    }  */
+    screen.textContent += "."
+}
+
 plus_sign.onclick = () => {
     plus_sign.setAttribute("class", "active");
-    if (op_counter == 0)
-    {
-        temp = screennumber;
-    } 
-    
-    screennumber = 0;
+    post_click();
     screen.textContent += "+";
+    
 }
 
 minus_sign.onclick = () => {
     minus_sign.setAttribute("class", "active");
-    if (op_counter == 0)
-    {
-        temp = screennumber;
-    } 
-    screennumber = 0;
+    post_click();
     screen.textContent += "–";
+    
 }
 
 mult_sign.onclick = () => {
     mult_sign.setAttribute("class", "active");
-    if (op_counter == 0)
-    {
-        temp = screennumber;
-    } 
-    screennumber = 0;
+    post_click();
     screen.textContent += "×";
 }
 
 div_sign.onclick = () => {
     div_sign.setAttribute("class", "active");
-    if (op_counter == 0)
-    {
-        temp = screennumber;
-    } 
-    screennumber = 0;
+    post_click();
     screen.textContent += "÷";
 }
 
 power_sign.onclick = () => {
     power_sign.setAttribute("class", "active");
-    if (op_counter == 0)
-    {
-        temp = screennumber;
-    } 
-    screennumber = 0;
+    post_click();
     screen.textContent += "^";
 }
 
@@ -265,11 +210,53 @@ result_sign.onclick = () => {
     temp = total;
     screennumber = 0;
     op_counter++;
+    decimal_counter = 1;
 }
+
+function number_click(input){
+
+    number = parseInt(input);
+
+    if ((screen.textContent != 0) && (!dot.hasAttribute("class", "active")))
+    {
+        screen.textContent += number;
+        screennumber = number + screennumber*10;
+    } else if ((screen.textContent != 0) && (dot.hasAttribute("class", "active"))) {
+        screen.textContent += number;
+        let temp_decimal_counter = decimal_counter;
+        let add = number;
+        while(temp_decimal_counter > 0){
+            add /= 10;
+            temp_decimal_counter--;
+        }
+        decimal_counter++;
+        screennumber += add;
+    } else {
+        screen.textContent = number;  
+        screennumber = number;   
+    }
+
+}
+
+function post_click(){
+    op_counter_zero_check();
+    screennumber = 0;
+    dot.removeAttribute("class", "active");
+    decimal_counter = 1;
+}
+
+function op_counter_zero_check(){
+    if (op_counter == 0)
+    {
+        temp = screennumber; //caching the previous result
+    } 
+}
+
+
+
 
 function operate(temp, screennumber){
     if (plus_sign.hasAttributes("active")){
-        
         total = temp + screennumber;
         plus_sign.removeAttribute("class", "active");
     } else if (minus_sign.hasAttributes("active")){
@@ -280,6 +267,11 @@ function operate(temp, screennumber){
         total = temp * screennumber;
     } else if (div_sign.hasAttributes("active")){
         div_sign.removeAttribute("class", "active");
+        if (screennumber == 0)
+        {
+            alert("Cannot divide by 0!");
+            return NaN;
+        }   
         total = temp / screennumber;
     } else if (power_sign.hasAttributes("active")){
         power_sign.removeAttribute("class", "active");
@@ -291,5 +283,6 @@ function operate(temp, screennumber){
         }
     }
     console.log(total);
+    dot.removeAttribute("class", "active");
     return total;
 }
