@@ -29,12 +29,24 @@ body{
 }
 
 #screen{
-    
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding: 20px;
     min-width: 200px;
     height: 200px;
     border-radius: 5%;
     margin: 5%;
     background-color: rgba(89,89,89,0.4);
+}
+
+#top_screen{
+    flex:1;
+    font: 
+}
+
+#bottom_screen{
+    flex:1;
 }
 
 #button_area{
@@ -62,7 +74,7 @@ button:active{
     background: rgba(89,89,89,0.7);
 }
 
-#result{
+#result_sign{
     margin-top: 3px;   
 }
 

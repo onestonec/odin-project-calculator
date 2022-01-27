@@ -2,13 +2,19 @@ const calculator = document.getElementById("calculator");
 
 //section creation
 const screen = document.createElement("div");
+const top_screen = document.createElement("div");
+const bottom_screen = document.createElement("div");
 const button_area = document.createElement("div");
 
 screen.setAttribute("id", "screen");
+top_screen.setAttribute("id", "top_screen");
+bottom_screen.setAttribute("id", "bottom_screen");
 button_area.setAttribute("id", "button_area");
 
 calculator.appendChild(screen);
 calculator.appendChild(button_area);
+screen.appendChild(top_screen);
+screen.appendChild(bottom_screen);
 
 //buttons creation
 let clear = document.createElement("button");
@@ -42,7 +48,7 @@ minus_sign.textContent = "–";
 dot.textContent = ".";
 
 result_sign.style.gridColumn = "span 2 / auto";
-result_sign.setAttribute("id", "result");
+result_sign.setAttribute("id", "result_sign");
 result_sign.textContent = "=";
 
 zero.textContent = "0";
@@ -103,7 +109,7 @@ button_area.appendChild(result_sign);
 
 let initial = 0;
 
-screen.textContent = initial;
+top_screen.textContent = initial;
 let screennumber = initial;
 let temp = 0;
 let total = 0;
@@ -151,78 +157,113 @@ zero.onclick = () => {
 };
 
 clear.onclick = () => {
-    screennumber = 0;
-    total = 0;
-    temp = 0;
-    op_counter = 0;
-    screen.textContent = initial;
+    clear_click();
 }
 
 backspace.onclick = () => {
-    screen.textContent = screen.textContent.slice(0,-1);
-    screennumber = Math.floor(screennumber / 10);
+    backspace_click();
 }
 
 dot.onclick = () => {
-    dot.setAttribute("class", "active");
-    /* if (op_counter == 0)
-    {
-        temp = screennumber/10;
-    }  */
-    screen.textContent += "."
+    dot_click();
 }
 
 plus_sign.onclick = () => {
-    plus_sign.setAttribute("class", "active");
-    post_click();
-    screen.textContent += "+";
-    
+    plus_click();
 }
 
 minus_sign.onclick = () => {
-    minus_sign.setAttribute("class", "active");
-    post_click();
-    screen.textContent += "–";
-    
+    minus_click();
 }
 
 mult_sign.onclick = () => {
-    mult_sign.setAttribute("class", "active");
-    post_click();
-    screen.textContent += "×";
+    mult_click();
 }
 
 div_sign.onclick = () => {
-    div_sign.setAttribute("class", "active");
-    post_click();
-    screen.textContent += "÷";
+    div_click();
 }
 
 power_sign.onclick = () => {
-    power_sign.setAttribute("class", "active");
-    post_click();
-    screen.textContent += "^";
+    power_click();
 }
 
 result_sign.onclick = () => {
-    total = operate(temp, screennumber);
-    screen.textContent += "=" + total;
-    temp = total;
-    screennumber = 0;
-    op_counter++;
-    decimal_counter = 1;
+    result_click();
 }
+
+document.addEventListener("keydown", (e) => {
+/*     console.log(e.key); */
+    if (e.key == 0)
+    {
+        number_click(zero.getAttribute("value"));
+    } else if (e.key == 1)
+    {
+        number_click(one.getAttribute("value"));
+    } else if (e.key == 2)
+    {
+        number_click(two.getAttribute("value"));
+    } else if (e.key == 3)
+    {
+        number_click(three.getAttribute("value"));
+    } else if (e.key == 4)
+    {
+        number_click(four.getAttribute("value"));
+    } else if (e.key == 5)
+    {
+        number_click(five.getAttribute("value"));
+    } else if (e.key == 6)
+    {
+        number_click(six.getAttribute("value"));
+    } else if (e.key == 7)
+    {
+        number_click(seven.getAttribute("value"));
+    } else if (e.key == 8)
+    {
+        number_click(eight.getAttribute("value"));
+    } else if (e.key == 9)
+    {
+        number_click(nine.getAttribute("value"));
+    } else if (e.key == "Delete")
+    {
+        clear_click();
+    } else if (e.key == "Backspace")
+    {
+       backspace_click();
+    } else if (e.key == "+")
+    {
+        plus_click();
+    } else if (e.key == "-")
+    {
+        minus_click();
+    } else if (e.key == "*")
+    {
+        mult_click();   
+    } else if (e.key == "/")
+    {
+        div_click();
+    } else if (e.key == "Enter")
+    {
+        result_click();   
+    } else if (e.key == ".")
+    {
+        dot_click();
+    } else if (e.shiftKey && e.key == "^")
+    {
+        power_click();
+    }
+})
 
 function number_click(input){
 
     number = parseInt(input);
 
-    if ((screen.textContent != 0) && (!dot.hasAttribute("class", "active")))
+    if ((top_screen.textContent != 0) && (!dot.hasAttribute("class", "active")))
     {
-        screen.textContent += number;
+        top_screen.textContent += number.toLocaleString("en");
         screennumber = number + screennumber*10;
-    } else if ((screen.textContent != 0) && (dot.hasAttribute("class", "active"))) {
-        screen.textContent += number;
+    } else if ((dot.hasAttribute("class", "active"))) {
+        top_screen.textContent += number.toLocaleString("en");
         let temp_decimal_counter = decimal_counter;
         let add = number;
         while(temp_decimal_counter > 0){
@@ -231,11 +272,10 @@ function number_click(input){
         }
         decimal_counter++;
         screennumber += add;
-    } else {
-        screen.textContent = number;  
+    } else  {
+        top_screen.textContent = number.toLocaleString("en");  
         screennumber = number;   
     }
-
 }
 
 function post_click(){
@@ -245,15 +285,77 @@ function post_click(){
     decimal_counter = 1;
 }
 
+function clear_click(){
+    screennumber = 0;
+    total = 0;
+    temp = 0;
+    op_counter = 0;
+    top_screen.textContent = initial;
+    bottom_screen.textContent = "";
+}
+
+function backspace_click(){
+    top_screen.textContent = top_screen.textContent.slice(0,-1);
+    screennumber = Math.floor(screennumber / 10);
+}
+
+function plus_click(){
+    plus_sign.setAttribute("class", "active");
+    post_click();
+    top_screen.textContent += "+";
+}
+
+function minus_click(){
+    minus_sign.setAttribute("class", "active");
+    post_click();
+    top_screen.textContent += "–";
+}
+
+function mult_click(){
+    mult_sign.setAttribute("class", "active");
+    post_click();
+    top_screen.textContent += "×";
+}
+
+function div_click(){
+    div_sign.setAttribute("class", "active");
+    post_click();
+    top_screen.textContent += "÷";
+}
+
+function result_click(){
+    total = operate(temp, screennumber);
+    top_screen.textContent += "=";
+    bottom_screen.textContent = total.toLocaleString("en");
+    temp = total;
+    screennumber = 0;
+    op_counter++;
+    decimal_counter = 1;
+}
+
+function power_click(){
+    power_sign.setAttribute("class", "active");
+    post_click();
+    top_screen.textContent += "^";
+}
+
+function dot_click(){
+    dot.setAttribute("class", "active");
+    /* if (op_counter == 0)
+    {
+        temp = screennumber/10;
+    }  */
+    top_screen.textContent += "."
+}
+
 function op_counter_zero_check(){
     if (op_counter == 0)
     {
         temp = screennumber; //caching the previous result
-    } 
+    } else {
+        top_screen.textContent = total.toLocaleString("en");
+    }
 }
-
-
-
 
 function operate(temp, screennumber){
     if (plus_sign.hasAttributes("active")){
@@ -282,6 +384,7 @@ function operate(temp, screennumber){
             screennumber--;
         }
     }
+    total = parseFloat((total.toFixed(5)));
     console.log(total);
     dot.removeAttribute("class", "active");
     return total;
