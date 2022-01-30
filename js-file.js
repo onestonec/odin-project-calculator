@@ -41,7 +41,7 @@ let clear_img = document.createElement("img");
 
 clear.textContent = "AC";
 //backspace.textContent = "DEL";
-clear_img.src = "https://github.com/onestonec/odin-project-calculator/blob/main/clear.png?raw=true"
+clear_img.src = "https://raw.githubusercontent.com/onestonec/odin-project-calculator/main/clear.png"
 clear_img.style.height = "20px";
 clear_img.style.width = "auto";
 clear_img.style.marginTop = "5px";
