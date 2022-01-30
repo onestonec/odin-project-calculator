@@ -86,19 +86,20 @@ button_area.appendChild(backspace);
 button_area.appendChild(power_sign);
 button_area.appendChild(div_sign);
 
-button_area.appendChild(nine);
-button_area.appendChild(eight);
 button_area.appendChild(seven);
+button_area.appendChild(eight);
+button_area.appendChild(nine);
 button_area.append(mult_sign);
 
-button_area.appendChild(six);
-button_area.appendChild(five);
 button_area.appendChild(four);
+button_area.appendChild(five);
+button_area.appendChild(six);
 button_area.append(plus_sign);
 
-button_area.appendChild(three);
-button_area.appendChild(two);
+
 button_area.appendChild(one);
+button_area.appendChild(two);
+button_area.appendChild(three);
 button_area.append(minus_sign);
 
 button_area.appendChild(zero);
@@ -108,52 +109,134 @@ button_area.appendChild(result_sign);
 //functions area
 
 let initial = 0;
-
-top_screen.textContent = initial;
 let screennumber = initial;
-let temp = 0;
+let temp = null;
 let total = 0;
 let op_counter = 0;
 let decimal_counter = 1;
+let negative_on = 1;
+let inputted = false;
+
+top_screen.textContent = initial;
 
 one.onclick = () => {
-    number_click(one.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(one.getAttribute("value"));
+        } 
+    } else {
+        number_pad_click(one.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 two.onclick = () => {
-    number_click(two.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(two.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(two.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 three.onclick = () => {
-    number_click(three.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(three.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(three.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 four.onclick = () => {
-    number_click(four.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(four.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(four.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 five.onclick = () => {
-    number_click(five.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(five.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(five.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 six.onclick = () => {
-    number_click(six.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(six.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(six.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 seven.onclick = () => {
-    number_click(seven.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(seven.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(seven.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 eight.onclick = () => {
-    number_click(eight.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(eight.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(eight.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 nine.onclick = () => {
-    number_click(nine.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(nine.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(nine.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 zero.onclick = () => {
-    number_click(zero.getAttribute("value"));
+    if (temp){
+        if (check_can_you_input_second_number())
+        {
+            number_pad_click(zero.getAttribute("value"));
+        }
+    } else {
+        number_pad_click(zero.getAttribute("value"));
+    }
+    inputted = true;
 };
 
 clear.onclick = () => {
@@ -193,37 +276,116 @@ result_sign.onclick = () => {
 }
 
 document.addEventListener("keydown", (e) => {
-/*     console.log(e.key); */
     if (e.key == 0)
-    {
-        number_click(zero.getAttribute("value"));
+    { 
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(zero.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(zero.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 1)
     {
-        number_click(one.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(one.getAttribute("value"));
+            } 
+        } else {
+            number_pad_click(one.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 2)
     {
-        number_click(two.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(two.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(two.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 3)
     {
-        number_click(three.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(three.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(three.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 4)
     {
-        number_click(four.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(four.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(four.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 5)
     {
-        number_click(five.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(five.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(five.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 6)
     {
-        number_click(six.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(six.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(six.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 7)
     {
-        number_click(seven.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(seven.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(seven.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 8)
     {
-        number_click(eight.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(eight.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(eight.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == 9)
     {
-        number_click(nine.getAttribute("value"));
+        if (temp){
+            if (check_can_you_input_second_number())
+            {
+                number_pad_click(nine.getAttribute("value"));
+            }
+        } else {
+            number_pad_click(nine.getAttribute("value"));
+        }
+        inputted = true;
     } else if (e.key == "Delete")
     {
         clear_click();
@@ -252,17 +414,18 @@ document.addEventListener("keydown", (e) => {
     {
         power_click();
     }
+
+    
 })
 
-function number_click(input){
-
+function number_pad_click(input){
     number = parseInt(input);
 
-    if ((top_screen.textContent != 0) && (!dot.hasAttribute("class", "active")))
+    if ((top_screen.textContent != 0) && (!dot.hasAttribute("class", "active"))) //handling non-decimal numbbers
     {
         top_screen.textContent += number.toLocaleString("en");
         screennumber = number + screennumber*10;
-    } else if ((dot.hasAttribute("class", "active"))) {
+    } else if ((dot.hasAttribute("class", "active"))) {         //handling decimals
         top_screen.textContent += number.toLocaleString("en");
         let temp_decimal_counter = decimal_counter;
         let add = number;
@@ -278,46 +441,63 @@ function number_click(input){
     }
 }
 
-function post_click(){
-    op_counter_zero_check();
-    screennumber = 0;
-    dot.removeAttribute("class", "active");
-    decimal_counter = 1;
-}
-
 function clear_click(){
     screennumber = 0;
     total = 0;
-    temp = 0;
+    temp = null;
     op_counter = 0;
+    negative_on = 1;
+    inputted = false;
     top_screen.textContent = initial;
     bottom_screen.textContent = "";
 }
 
 function backspace_click(){
-    top_screen.textContent = top_screen.textContent.slice(0,-1);
-    screennumber = Math.floor(screennumber / 10);
+    if (top_screen.textContent.at(-1) == '+') {
+        plus_sign.removeAttribute("class", "active");
+    } else if (top_screen.textContent.at(-1) == '-') {
+        minus_sign.removeAttribute("class", "active");
+    } else if (top_screen.textContent.at(-1) == '×') {
+        mult_sign.removeAttribute("class", "active");
+    } else if (top_screen.textContent.at(-1) == '÷') {
+        div_sign.removeAttribute("class", "active");
+    } else{
+        screennumber = Math.floor(screennumber / 10);
+    }
+    top_screen.textContent = top_screen.textContent.slice(0,-1);    
 }
 
 function plus_click(){
+    remove_other_active_signs();
     plus_sign.setAttribute("class", "active");
     post_click();
     top_screen.textContent += "+";
 }
 
 function minus_click(){
-    minus_sign.setAttribute("class", "active");
-    post_click();
-    top_screen.textContent += "–";
+    if (inputted == false)  //detect if the first number is a negative
+    {
+        console.log("in");
+        top_screen.textContent = "-";
+        negative_on = -1;
+     
+    } else{
+        remove_other_active_signs();
+        minus_sign.setAttribute("class", "active");
+        post_click();
+        top_screen.textContent += "-";
+    }
 }
 
 function mult_click(){
+    remove_other_active_signs();
     mult_sign.setAttribute("class", "active");
     post_click();
     top_screen.textContent += "×";
 }
 
 function div_click(){
+    remove_other_active_signs();
     div_sign.setAttribute("class", "active");
     post_click();
     top_screen.textContent += "÷";
@@ -325,15 +505,17 @@ function div_click(){
 
 function result_click(){
     total = operate(temp, screennumber);
-    top_screen.textContent += "=";
+    //top_screen.textContent += "=";
     bottom_screen.textContent = total.toLocaleString("en");
-    temp = total;
+    temp = total;   //caching
     screennumber = 0;
     op_counter++;
     decimal_counter = 1;
+    
 }
 
 function power_click(){
+    remove_other_active_signs();
     power_sign.setAttribute("class", "active");
     post_click();
     top_screen.textContent += "^";
@@ -348,27 +530,54 @@ function dot_click(){
     top_screen.textContent += "."
 }
 
-function op_counter_zero_check(){
-    if (op_counter == 0)
+function post_click(){
+    /* if (inputted == true)
     {
-        temp = screennumber; //caching the previous result
+        
+    } */
+    op_counter_zero_check();
+    screennumber = 0;
+    dot.removeAttribute("class", "active");
+    decimal_counter = 1;
+    negative_on = 1;
+}
+
+function op_counter_zero_check(){
+    if ((temp == null))
+    {
+        temp = screennumber * negative_on; //caching the previous result
+        negative_on = 1;
+       
     } else {
         top_screen.textContent = total.toLocaleString("en");
+    }
+}
+
+function remove_other_active_signs(){
+    plus_sign.removeAttribute("class", "active");
+    minus_sign.removeAttribute("class", "active");
+    mult_sign.removeAttribute("class", "active");
+    div_sign.removeAttribute("class", "active");
+    power_sign.removeAttribute("class", "active");
+}
+
+function check_can_you_input_second_number(){
+    if ((!plus_sign.hasAttributes("active")) && (!minus_sign.hasAttributes("active")) && (!mult_sign.hasAttributes("active")) && (!div_sign.hasAttributes("active")) && (!power_sign.hasAttributes("active")))
+    {
+        return false;
+    } else{
+        return true;
     }
 }
 
 function operate(temp, screennumber){
     if (plus_sign.hasAttributes("active")){
         total = temp + screennumber;
-        plus_sign.removeAttribute("class", "active");
     } else if (minus_sign.hasAttributes("active")){
-        minus_sign.removeAttribute("class", "active");
         total = temp - screennumber;
     } else if (mult_sign.hasAttributes("active")){
-        mult_sign.removeAttribute("class", "active");
         total = temp * screennumber;
     } else if (div_sign.hasAttributes("active")){
-        div_sign.removeAttribute("class", "active");
         if (screennumber == 0)
         {
             alert("Cannot divide by 0!");
@@ -376,7 +585,7 @@ function operate(temp, screennumber){
         }   
         total = temp / screennumber;
     } else if (power_sign.hasAttributes("active")){
-        power_sign.removeAttribute("class", "active");
+       
         total = 1;
         while (screennumber > 0 )
         {
@@ -384,6 +593,7 @@ function operate(temp, screennumber){
             screennumber--;
         }
     }
+    remove_other_active_signs();
     total = parseFloat((total.toFixed(5)));
     console.log(total);
     dot.removeAttribute("class", "active");
