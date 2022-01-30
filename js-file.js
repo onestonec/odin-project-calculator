@@ -37,9 +37,16 @@ let six = document.createElement("button");
 let seven = document.createElement("button");
 let eight = document.createElement("button");
 let nine = document.createElement("button");
+let clear_img = document.createElement("img");
 
-clear.textContent = "C";
-backspace.textContent = "DEL";
+clear.textContent = "AC";
+//backspace.textContent = "DEL";
+clear_img.src = "/clear.png"
+clear_img.style.height = "20px";
+clear_img.style.width = "auto";
+clear_img.style.marginTop = "5px";
+backspace.appendChild(clear_img);
+
 power_sign.textContent = "x^y";
 div_sign.textContent = "÷";
 mult_sign.textContent = "×";
@@ -285,7 +292,7 @@ document.addEventListener("keydown", (e) => {
             zero.style.background = "";
             zero.removeAttribute("style");
         })
-        
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -472,7 +479,6 @@ document.addEventListener("keydown", (e) => {
             plus_sign.style.background = "";
             plus_sign.removeAttribute("style");
         })
-        result_click();   
         plus_click();
     } else if (e.key == "-")
     {
@@ -566,6 +572,7 @@ function clear_click(){
     inputted = false;
     top_screen.textContent = initial;
     bottom_screen.textContent = "";
+    remove_other_active_signs();
 }
 
 function backspace_click(){
