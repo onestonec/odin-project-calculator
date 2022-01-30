@@ -275,9 +275,17 @@ result_sign.onclick = () => {
     result_click();
 }
 
+
+
 document.addEventListener("keydown", (e) => {
     if (e.key == 0)
-    { 
+    {
+        zero.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            zero.style.background = "";
+            zero.removeAttribute("style");
+        })
+        
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -289,6 +297,12 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 1)
     {
+        one.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            one.style.background = "";
+            one.removeAttribute("style");
+        })
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -300,6 +314,12 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 2)
     {
+        two.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            two.style.background = "";
+            two.removeAttribute("style");
+        })
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -311,6 +331,11 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 3)
     {
+        three.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            three.style.background = "";
+            three.removeAttribute("style");
+        })
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -322,6 +347,12 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 4)
     {
+        four.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            four.style.background = "";
+            four.removeAttribute("style");
+        })
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -333,6 +364,12 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 5)
     {
+        five.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            five.style.background = "";
+            five.removeAttribute("style");
+        })
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -344,6 +381,12 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 6)
     {
+        six.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            six.style.background = "";
+            six.removeAttribute("style");
+        })
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -355,6 +398,12 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 7)
     {
+        seven.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            seven.style.background = "";
+            seven.removeAttribute("style");
+        })
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -366,6 +415,12 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 8)
     {
+        eight.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            eight.style.background = "";
+            eight.removeAttribute("style");
+        })
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -377,6 +432,12 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == 9)
     {
+        nine.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            nine.style.background = "";
+            nine.removeAttribute("style");
+        })
+
         if (temp){
             if (check_can_you_input_second_number())
             {
@@ -388,34 +449,89 @@ document.addEventListener("keydown", (e) => {
         inputted = true;
     } else if (e.key == "Delete")
     {
+        clear.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            clear.style.background = "";
+            clear.removeAttribute("style");
+        })
+
         clear_click();
     } else if (e.key == "Backspace")
     {
+        backspace.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            backspace.style.background = "";
+            backspace.removeAttribute("style");
+        })
+
        backspace_click();
     } else if (e.key == "+")
     {
+        plus_sign.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            plus_sign.style.background = "";
+            plus_sign.removeAttribute("style");
+        })
+        result_click();   
         plus_click();
     } else if (e.key == "-")
     {
+        minus_sign.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            minus_sign.style.background = "";
+            minus_sign.removeAttribute("style");
+        })
         minus_click();
     } else if (e.key == "*")
     {
+        mult_sign.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            mult_sign.style.background = "";
+            mult_sign.removeAttribute("style");
+        })
         mult_click();   
     } else if (e.key == "/")
     {
+        div_sign.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            div_sign.style.background = "";
+            div_sign.removeAttribute("style");
+        })
         div_click();
     } else if (e.key == "Enter")
     {
+        result_sign.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            result_sign.style.background = "";
+            result_sign.removeAttribute("style");
+        })
         result_click();   
     } else if (e.key == ".")
     {
-        dot_click();
+        dot.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            dot.style.background = "";
+            dot.removeAttribute("style");
+        })
+
+       /*  dot_click(); */
+       if (temp){
+        if (check_can_you_input_second_number())
+        {
+            dot_click();
+        }
+        } else {
+            dot_click();
+        }
     } else if (e.shiftKey && e.key == "^")
     {
+        power_sign.style.background = "rgba(89,89,89,0.7)";
+        document.addEventListener("keyup", () => {
+            power_sign.style.background = "";
+            power_sign.removeAttribute("style");
+        })
         power_click();
     }
-
-    
 })
 
 function number_pad_click(input){
@@ -423,10 +539,10 @@ function number_pad_click(input){
 
     if ((top_screen.textContent != 0) && (!dot.hasAttribute("class", "active"))) //handling non-decimal numbbers
     {
-        top_screen.textContent += number.toLocaleString("en");
+        top_screen.textContent += number;
         screennumber = number + screennumber*10;
     } else if ((dot.hasAttribute("class", "active"))) {         //handling decimals
-        top_screen.textContent += number.toLocaleString("en");
+        top_screen.textContent += number;
         let temp_decimal_counter = decimal_counter;
         let add = number;
         while(temp_decimal_counter > 0){
@@ -436,7 +552,7 @@ function number_pad_click(input){
         decimal_counter++;
         screennumber += add;
     } else  {
-        top_screen.textContent = number.toLocaleString("en");  
+        top_screen.textContent = number;  
         screennumber = number;   
     }
 }
@@ -506,12 +622,11 @@ function div_click(){
 function result_click(){
     total = operate(temp, screennumber);
     //top_screen.textContent += "=";
-    bottom_screen.textContent = total.toLocaleString("en");
+    bottom_screen.textContent = total;
     temp = total;   //caching
     screennumber = 0;
     op_counter++;
     decimal_counter = 1;
-    
 }
 
 function power_click(){
@@ -522,19 +637,18 @@ function power_click(){
 }
 
 function dot_click(){
-    dot.setAttribute("class", "active");
-    /* if (op_counter == 0)
+    if (!dot.hasAttribute("class", "active"))
     {
-        temp = screennumber/10;
-    }  */
-    top_screen.textContent += "."
+        dot.setAttribute("class", "active");
+        top_screen.textContent += ".";
+    }
 }
 
 function post_click(){
-    /* if (inputted == true)
+    /* if (temp == null)
     {
         
-    } */
+    }  */
     op_counter_zero_check();
     screennumber = 0;
     dot.removeAttribute("class", "active");
@@ -547,9 +661,12 @@ function op_counter_zero_check(){
     {
         temp = screennumber * negative_on; //caching the previous result
         negative_on = 1;
-       
-    } else {
-        top_screen.textContent = total.toLocaleString("en");
+    } 
+    
+    if (op_counter == 0){
+        top_screen.textContent = temp;
+    } else{
+        top_screen.textContent = total;
     }
 }
 
@@ -562,8 +679,9 @@ function remove_other_active_signs(){
 }
 
 function check_can_you_input_second_number(){
-    if ((!plus_sign.hasAttributes("active")) && (!minus_sign.hasAttributes("active")) && (!mult_sign.hasAttributes("active")) && (!div_sign.hasAttributes("active")) && (!power_sign.hasAttributes("active")))
-    {
+    if ((!plus_sign.hasAttributes("class", "active")) && (!minus_sign.hasAttributes("active")) && (!mult_sign.hasAttributes("active")) && (!div_sign.hasAttributes("active")) && (!power_sign.hasAttributes("active")))
+    {   
+        console.log("all signs are off");
         return false;
     } else{
         return true;
@@ -571,7 +689,7 @@ function check_can_you_input_second_number(){
 }
 
 function operate(temp, screennumber){
-    if (plus_sign.hasAttributes("active")){
+    if (plus_sign.hasAttributes("class", "active")){
         total = temp + screennumber;
     } else if (minus_sign.hasAttributes("active")){
         total = temp - screennumber;
@@ -581,6 +699,7 @@ function operate(temp, screennumber){
         if (screennumber == 0)
         {
             alert("Cannot divide by 0!");
+            //clear_click();
             return NaN;
         }   
         total = temp / screennumber;
@@ -592,6 +711,10 @@ function operate(temp, screennumber){
             total = total * temp;
             screennumber--;
         }
+    } else if (screennumber == 0)
+    {
+        console.log("hello");
+        total = parseFloat(top_screen.textContent);
     }
     remove_other_active_signs();
     total = parseFloat((total.toFixed(5)));
