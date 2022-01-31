@@ -118,7 +118,7 @@ button_area.appendChild(result_sign);
 let initial = 0;
 let screennumber = initial;
 let temp = null;
-let total = 0;
+let total = null;
 let op_counter = 0;
 let decimal_counter = 1;
 let negative_on = 1;
@@ -479,6 +479,7 @@ document.addEventListener("keydown", (e) => {
             plus_sign.style.background = "";
             plus_sign.removeAttribute("style");
         })
+
         plus_click();
     } else if (e.key == "-")
     {
@@ -487,6 +488,9 @@ document.addEventListener("keydown", (e) => {
             minus_sign.style.background = "";
             minus_sign.removeAttribute("style");
         })
+        
+        
+
         minus_click();
     } else if (e.key == "*")
     {
@@ -495,6 +499,7 @@ document.addEventListener("keydown", (e) => {
             mult_sign.style.background = "";
             mult_sign.removeAttribute("style");
         })
+        
         mult_click();   
     } else if (e.key == "/")
     {
@@ -503,6 +508,7 @@ document.addEventListener("keydown", (e) => {
             div_sign.style.background = "";
             div_sign.removeAttribute("style");
         })
+        
         div_click();
     } else if (e.key == "Enter")
     {
@@ -520,7 +526,6 @@ document.addEventListener("keydown", (e) => {
             dot.removeAttribute("style");
         })
 
-       /*  dot_click(); */
        if (temp){
         if (check_can_you_input_second_number())
         {
@@ -536,6 +541,10 @@ document.addEventListener("keydown", (e) => {
             power_sign.style.background = "";
             power_sign.removeAttribute("style");
         })
+        if (power_sign.hasAttributes("class", "active"))
+        {
+            result_click();
+        }
         power_click();
     }
 })
@@ -600,7 +609,7 @@ function plus_click(){
 function minus_click(){
     if (inputted == false)  //detect if the first number is a negative
     {
-        console.log("in");
+        console.log("first num negative");
         top_screen.textContent = "-";
         negative_on = -1;
      
@@ -664,13 +673,14 @@ function post_click(){
 }
 
 function op_counter_zero_check(){
-    if ((temp == null))
+    if (temp == null)
     {
         temp = screennumber * negative_on; //caching the previous result
         negative_on = 1;
     } 
     
-    if (op_counter == 0){
+    
+    if (op_counter == 0){ 
         top_screen.textContent = temp;
     } else{
         top_screen.textContent = total;
