@@ -489,8 +489,6 @@ document.addEventListener("keydown", (e) => {
             minus_sign.removeAttribute("style");
         })
         
-        
-
         minus_click();
     } else if (e.key == "*")
     {
